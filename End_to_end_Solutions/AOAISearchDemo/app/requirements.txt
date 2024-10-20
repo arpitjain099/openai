@@ -1,6 +1,6 @@
 .
 azure-cosmos==4.4.0
-azure-identity==1.13.0b3
+azure-identity==1.16.1
 azure-keyvault==4.2.0
 azure-keyvault-secrets==4.7.0
 azure-search-documents==11.4.0b6
