@@ -69,6 +69,14 @@ parser.add_argument("--openAIDimensions", required=False,
 parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
 args = parser.parse_args()
 
+# Define a safe root directory
+SAFE_ROOT = os.path.abspath(os.getcwd())
+
+# Normalize and validate the user-provided path
+user_path = os.path.abspath(os.path.normpath(args.files))
+if not user_path.startswith(SAFE_ROOT):
+    raise ValueError("The provided path is not allowed.")
+
 # Use the current user identity to connect to Azure services unless a key is explicitly set for any of them
 azd_credential = AzureDeveloperCliCredential() if args.tenantid == None else AzureDeveloperCliCredential(
     tenant_id=args.tenantid)
@@ -360,7 +368,7 @@ else:
         create_search_index()
 
     print(f"Processing files...")
-    for root, dirs, files in os.walk(args.files):
+    for root, dirs, files in os.walk(user_path):
         for file in files:
             filename = os.path.join(root, file)
             if args.verbose: print(f"Processing '{filename}'")
