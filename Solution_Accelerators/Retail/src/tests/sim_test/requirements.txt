@@ -3,7 +3,7 @@ azure-keyvault==4.2.0
 azure-cosmos==4.7.0
 python-dotenv==1.0.0
 azure-identity
-Quart==0.19.9
+Quart==0.20.0
 quart-cors==0.7.0
 PyYAML==6.0.1
 uvicorn==0.20.0
