@@ -3,7 +3,7 @@ requests
 tiktoken
 flask
 python-dotenv
-prefect==1.4.1
+prefect==2.20.17
 azure-identity
 azure-keyvault-secrets
 requests_oauthlib
